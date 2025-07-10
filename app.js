@@ -1,7 +1,12 @@
 const express = require("express");
+const urlRoutes = require("./routes/url");
 const app = express();
 require("dotenv").config();
 const connectDB = require("./db");
+
+
+app.use(express.json());
+app.use('/', urlRoutes);
 
 const port = process.env.PORT || 5000;
 app.get("/helo", (req, res) => {
